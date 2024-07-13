@@ -1,0 +1,19 @@
+<cafe>
+ <menu>
+    <drink>
+        <name>latte cloud</name>
+        <price>150</price>
+        <name>island on tea</name>
+        <price>200</price>
+        <name>speacial treaty</name>
+        <price>195</price>
+    </drink>
+    <dessert>
+        <name>chocolate fudge</name>
+        <price>250</price>
+        <name>fruity lava</name>
+        <price>300</price>
+    </dessert>
+ </menu>
+</cafe>
+    
