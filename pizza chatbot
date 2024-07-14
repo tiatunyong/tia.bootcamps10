@@ -1,0 +1,36 @@
+##pizza chatbot
+## present menu to a user
+## let them choose a menu
+## let them choose a drink
+## bonus - check bill
+
+ pizza_menu <- c("hawaiian", "supreme", "cocktail sea","veggie", "all cheese")
+ drinks_menu <- c("sprite", "water", "lemonade", "milkshake", "coke")
+ price_piz <- c(250, 350, 450, 199, 390)
+ price_drinks <- c(50, 45, 90, 75, 50)
+
+
+ pizza_df <- data.frame(pizza_menu, price_piz)
+ drinks_df <- data.frame(drinks_menu, price_drinks)
+
+
+pizza_bot <- function(){
+  print("Hello welcome to pizzeria restaurant!")
+  print("Our delicious pizzas:")
+  print(pizza_menu, sep = "\n  * ")
+  print("our drinks menu:")
+  print(drinks_menu, sep = "\n *")
+  pizza_order <- readline("ready for order? : ")
+  drink_order <- readline("choose your drink:")
+  
+  if(pizza_order %in% pizza_df$pizza_menu){
+    pizza_price_index <- which(pizza_df$pizza_menu == pizza_order)
+    price1 <- pizza_df$price_piz[pizza_price_index]}&
+    if(drink_order %in% drinks_df$drinks_menu){
+      drink_price_index <- which(drinks_df$drinks_menu == drink_order)
+      price2 <- drinks_df$price_drinks[drink_price_index]
+    }
+  print(glue("Here is your order: {pizza_order}, {drink_order}"))
+  print(glue("Total price is {price1 + price2}$"))
+  print("thank you for choosing us!")
+}  
