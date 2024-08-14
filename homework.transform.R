@@ -38,7 +38,7 @@ df %>%
 
 df %>%
   select(origin, dest, distance, hour) %>%
-  filter(hour > 10) %>%
+  filter(hour > 10)
  
 
    
