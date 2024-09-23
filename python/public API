@@ -1,0 +1,36 @@
+#get request - API -python
+#extract only title, pubisher and place of publication
+
+from requests import get
+from time import sleep
+base_url = "https://chroniclingamerica.loc.gov/search/titles/results/?terms=michigan&format=json&page=5"
+
+charactor = []
+
+for i in range(1,10):
+    api_url = f"{base_url}&page={i}"
+    response = get(api_url)
+    if response.status_code == 200:
+        data = response.json()
+        title = data["items"][0]["title"]
+        publisher = data["items"][0]["publisher"]
+        country = data["items"][0]["place_of_publication"]
+        result = [title, publisher, country]
+        charactor.append(result)
+        sleep(3)
+    else:
+         print(f"error: {response.status_code} for {api_url}")
+
+print(charactor)
+
+#write csv
+import csv
+
+header = ["title", 'publisher', 'country']
+
+with open("information.csv", "w") as file:
+    writer = csv.writer(file)
+    writer.writerow(header)
+    writer.writerows(charactor)
+
+!cat information.csv
