@@ -1,0 +1,36 @@
+#pao ying chub game
+from random import choice
+
+def pao_ying_chub():
+    print("Let's play Pao Ying Chub together!")
+    
+    play_again = True 
+    
+    while play_again:  # Keep playing as long as play_again is True
+        hands = ["scissor", "rock", "paper"]
+        a_hand = choice(hands)
+        print("Choose your choice : [scissor, rock, paper]")
+        user_hand = input("Your hand?:  ")
+        print(a_hand, user_hand)
+        
+        if a_hand == user_hand:
+            print("Draw")
+        elif a_hand == "scissor" and user_hand == "rock":
+            print("You lose")
+        elif a_hand == "scissor" and user_hand == "paper":
+            print("You win")
+        elif a_hand == "rock" and user_hand == "scissor":
+            print("You lose")
+        elif a_hand == "rock" and user_hand == "paper":
+            print("You win")
+        elif a_hand == "paper" and user_hand == "scissor":
+            print("You win")
+        elif a_hand == "paper" and user_hand == "rock":
+            print("You lose")
+        else:
+            print("Invalid input. Please choose from [scissor, rock, paper]")
+        
+        user_choice = input("Do you want to play again? (yes/no): ")
+        if user_choice.lower() != "yes":
+            play_again = False  # Exit the loop if the user doesn't enter "yes"
+            print("let's play together next time!")
